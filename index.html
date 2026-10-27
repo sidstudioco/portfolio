@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="p:domain_verify" content="57309a071c8b6a0316d823a4c5bb13e6"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SidStudio | Full-Stack Developer & AI Creator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Kalam:wght@300;400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: '#FFF8E7',
+                        bg: '#FFF8F7',
+                        purple: '#7C5CFF',
+                        lightPurple: '#A78BFA',
+                        dark: '#1A1A1A',
+                        cardBorder: '#E9E5FF',
+                        orange: '#FFB86C'
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        hand: ['Kalam', 'cursive'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #FFF8F7; color: #1A1A1A; }
+        
+        .polaroid {
+            background: white;
+            padding: 12px 12px 50px 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease;
+        }
+        .polaroid:hover { transform: rotate(0deg) scale(1.02) !important; z-index: 10; }
+        
+        .washi-tape {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background: rgba(167, 139, 250, 0.4);
+            backdrop-filter: blur(2px);
+            z-index: 20;
+            transform: rotate(-5deg);
+            top: -15px;
+            left: 50%;
+            margin-left: -50px;
+        }
+
+        .lift-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .lift-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(124, 92, 255, 0.15);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #E9E5FF;
+            transform: translateX(-50%);
+        }
+
+        @keyframes wavePaw {
+            0%, 100% { transform: rotate(15deg); }
+            50% { transform: rotate(-15deg); }
+        }
+        .paw-animate {
+            animation: wavePaw 1.5s ease-in-out infinite;
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="font-body antialiased overflow-x-hidden">
+
+    <!-- 1. NAV -->
+    <nav class="sticky top-0 z-50 bg-bg/90 backdrop-blur-md border-b border-cardBorder px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-heading font-bold text-2xl text-purple tracking-tighter">SidStudio</a>
+            <div class="hidden md:flex gap-2 bg-white px-2 py-1 rounded-full border border-cardBorder shadow-sm">
+                <a href="#home" class="px-4 py-1.5 text-sm font-medium hover:bg-bg rounded-full transition">Home</a>
+                <a href="#about" class="px-4 py-1.5 text-sm font-medium hover:bg-bg rounded-full transition">About</a>
+                <a href="#projects" class="px-4 py-1.5 text-sm font-medium hover:bg-bg rounded-full transition">Projects</a>
+                <a href="#contact" class="px-4 py-1.5 text-sm font-medium hover:bg-bg rounded-full transition">Contact</a>
+            </div>
+            <a href="#contact" class="bg-purple text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-lightPurple transition shadow-md">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- 2. HERO -->
+    <section id="home" class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
+        <div class="w-full md:w-1/2 z-10">
+            <h1 class="font-heading text-5xl md:text-7xl font-bold leading-tight mb-4">
+                Hi there — <br/> I'm <span class="text-purple">Sid</span>.
+            </h1>
+            <p class="font-hand text-2xl text-purple mb-6">founder of SidStudio | full-stack developer & AI creator from Kolhapur</p>
+            <p class="text-gray-600 mb-8 max-w-md">
+                The girl behind the screen — building things with code, creativity & a little too much coffee. Running the entire studio, solo.
+            </p>
+            
+            <div class="flex gap-4 mb-8">
+                <a href="#projects" class="bg-purple text-white px-8 py-3 rounded-xl font-semibold hover:bg-lightPurple transition shadow-lg shadow-purple/20">View Projects →</a>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl border border-cardBorder shadow-sm mb-8 inline-block">
+                <p class="font-hand text-xl text-gray-700">
+                    "Not counting the years or the projects — just building, learning, and shipping."
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+                <span class="bg-purple/10 text-purple px-3 py-1 rounded-full text-sm font-medium">React</span>
+                <span class="bg-purple/10 text-purple px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                <span class="bg-purple/10 text-purple px-3 py-1 rounded-full text-sm font-medium">AI/ML</span>
+                <span class="bg-purple/10 text-purple px-3 py-1 rounded-full text-sm font-medium">UI/Design</span>
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/2 flex justify-center relative mt-10 md:mt-0">
+            <div class="absolute w-64 h-64 bg-purple/20 blur-3xl rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"></div>
+            <div class="polaroid rotate-2 z-10 relative max-w-sm">
+                <div class="washi-tape"></div>
+                <img src="sid-avatar.jpeg" alt="Sid and Lucky" class="w-full aspect-square object-cover rounded-sm" onerror="this.src='https://via.placeholder.com/600x600/FFF8E7/7C5CFF?text=Add+sid-avatar.jpeg'">
+                <p class="font-hand text-center mt-4 text-gray-600 text-lg">the girl behind SidStudio • Lucky the cat ♡</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. A LITTLE ABOUT ME -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-20 bg-white rounded-3xl border border-cardBorder my-10 shadow-sm">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="w-full md:w-1/3 flex justify-center">
+                <div class="polaroid -rotate-3">
+                    <!-- YOUR NEW COZY CORNER IMAGE -->
+                    <img src="cozy-corner.png" alt="My cozy corner" class="w-full aspect-[4/3] object-cover" onerror="this.src='https://via.placeholder.com/600x450/FFF8E7/7C5CFF?text=Add+cozy-corner.png'">
+                    <p class="font-hand text-center mt-4 text-gray-600">My cozy corner</p>
+                </div>
+            </div>
+            <div class="w-full md:w-2/3">
+                <h2 class="font-heading text-3xl font-bold mb-6">A little about me</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    I'm a full-stack developer and AI creator. I love bridging the gap between beautiful design and complex backend logic. As the solo founder of SidStudio, I handle everything from the initial code architecture to the final pixel-perfect design.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-bg p-4 rounded-xl text-center">
+                        <div class="font-heading font-bold text-xl text-purple">Self</div>
+                        <div class="text-xs text-gray-500">Taught</div>
+                    </div>
+                    <div class="bg-bg p-4 rounded-xl text-center">
+                        <div class="font-heading font-bold text-xl text-purple">Full</div>
+                        <div class="text-xs text-gray-500">Stack</div>
+                    </div>
+                    <div class="bg-bg p-4 rounded-xl text-center">
+                        <div class="font-heading font-bold text-xl text-purple">100%</div>
+                        <div class="text-xs text-gray-500">Independent</div>
+                    </div>
+                    <div class="bg-bg p-4 rounded-xl text-center">
+                        <div class="font-heading font-bold text-xl text-purple">Solo</div>
+                        <div class="text-xs text-gray-500">Studio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. THINGS I'VE MADE -->
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="font-heading text-4xl font-bold mb-2">Things I've made</h2>
+            <p class="font-hand text-xl text-purple">check my Instagram for the full portfolio</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-cardBorder lift-card cursor-pointer">
+                <div class="h-40 bg-purple/10 rounded-xl mb-4 flex items-center justify-center text-4xl">💻</div>
+                <h3 class="font-heading font-bold text-xl mb-2">Websites & Web Apps</h3>
+                <p class="text-gray-500 text-sm">React, Next.js, Node.js. Fully responsive, fast, and beautiful.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-cardBorder lift-card cursor-pointer">
+                <div class="h-40 bg-orange/10 rounded-xl mb-4 flex items-center justify-center text-4xl">📱</div>
+                <h3 class="font-heading font-bold text-xl mb-2">Android & Software</h3>
+                <p class="text-gray-500 text-sm">Java, Python. Desktop and mobile applications built for scale.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-cardBorder lift-card cursor-pointer">
+                <div class="h-40 bg-purple/10 rounded-xl mb-4 flex items-center justify-center text-4xl">🎨</div>
+                <h3 class="font-heading font-bold text-xl mb-2">AI, Images, Videos & 3D</h3>
+                <p class="text-gray-500 text-sm">Generative AI, 3D rendering, video editing, and prompt engineering.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-cardBorder lift-card cursor-pointer">
+                <div class="h-40 bg-orange/10 rounded-xl mb-4 flex items-center justify-center text-4xl">🖌️</div>
+                <h3 class="font-heading font-bold text-xl mb-2">Posters & Edits</h3>
+                <p class="text-gray-500 text-sm">Canva, Photoshop. Social media creatives that convert.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-cardBorder lift-card cursor-pointer">
+                <div class="h-40 bg-purple/10 rounded-xl mb-4 flex items-center justify-center text-4xl">🚀</div>
+                <h3 class="font-heading font-bold text-xl mb-2">Brands</h3>
+                <p class="text-gray-500 text-sm">End-to-end branding, logos, and digital identity systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. THE STORY SO FAR -->
+    <section class="max-w-4xl mx-auto px-6 py-20 relative">
+        <div class="text-center mb-16">
+            <h2 class="font-heading text-4xl font-bold mb-2">The story so far</h2>
+            <p class="font-hand text-xl text-purple">my solo journey through code</p>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line hidden md:block"></div>
+            
+            <!-- Timeline Item 1 -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12 w-full">
+                <div class="w-full md:w-5/12 text-right pr-8 hidden md:block">
+                    <h3 class="font-heading font-bold text-xl text-purple">Present</h3>
+                    <p class="font-semibold">Running SidStudio</p>
+                </div>
+                <div class="w-8 h-8 bg-purple rounded-full border-4 border-white z-10 shadow-md hidden md:block"></div>
+                <div class="w-full md:w-5/12 pl-0 md:pl-8">
+                    <div class="bg-white p-6 rounded-2xl border border-cardBorder shadow-sm">
+                        <h3 class="font-heading font-bold text-xl text-purple md:hidden">Present</h3>
+                        <p class="font-semibold mb-2">Running SidStudio</p>
+                        <p class="text-sm text-gray-500">Handling everything solo: full-stack coding, AI generation, design, and client management. No team, just me and my laptop.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12 w-full">
+                <div class="w-full md:w-5/12 pl-0 md:pr-8 md:text-right order-2 md:order-1">
+                    <div class="bg-white p-6 rounded-2xl border border-cardBorder shadow-sm">
+                        <h3 class="font-heading font-bold text-xl text-purple md:hidden">The Expansion</h3>
+                        <p class="font-semibold mb-2">Mastering the Stack</p>
+                        <p class="text-sm text-gray-500">Expanded from just coding into AI video/image generation, 3D design, and professional poster creation.</p>
+                    </div>
+                </div>
+                <div class="w-8 h-8 bg-purple rounded-full border-4 border-white z-10 shadow-md hidden md:block order-1 md:order-2"></div>
+                <div class="w-full md:w-5/12 pl-8 order-3 hidden md:block">
+                    <h3 class="font-heading font-bold text-xl text-purple">The Expansion</h3>
+                    <p class="font-semibold">Mastering the Stack</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12 w-full">
+                <div class="w-full md:w-5/12 text-right pr-8 hidden md:block">
+                    <h3 class="font-heading font-bold text-xl text-purple">The Beginning</h3>
+                    <p class="font-semibold">First Line of Code</p>
+                </div>
+                <div class="w-8 h-8 bg-purple rounded-full border-4 border-white z-10 shadow-md hidden md:block"></div>
+                <div class="w-full md:w-5/12 pl-0 md:pl-8">
+                    <div class="bg-white p-6 rounded-2xl border border-cardBorder shadow-sm">
+                        <h3 class="font-heading font-bold text-xl text-purple md:hidden">The Beginning</h3>
+                        <p class="font-semibold mb-2">First Line of Code</p>
+                        <p class="text-sm text-gray-500">Started building websites for local clients in Kolhapur, learning React, Python, and Java along the way.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. THINGS I'M GOOD AT -->
+    <section class="py-20 overflow-hidden">
+        <div class="text-center mb-12">
+            <h2 class="font-heading text-4xl font-bold mb-2">Things I'm good at</h2>
+            <p class="font-hand text-xl text-purple">a cloud of skills</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto flex flex-wrap justify-center gap-4 px-6">
+            <span class="bg-purple text-white px-6 py-3 rounded-full font-semibold text-lg rotate-[-3deg] shadow-lg lift-card">React</span>
+            <span class="bg-white text-dark border border-cardBorder px-6 py-3 rounded-full font-semibold text-lg rotate-[2deg] shadow-sm lift-card">Next.js</span>
+            <span class="bg-orange text-white px-6 py-3 rounded-full font-semibold text-lg rotate-[-2deg] shadow-lg lift-card">Java</span>
+            <span class="bg-white text-dark border border-cardBorder px-6 py-3 rounded-full font-semibold text-lg rotate-[3deg] shadow-sm lift-card">Python</span>
+            <span class="bg-dark text-white px-6 py-3 rounded-full font-semibold text-lg rotate-[-4deg] shadow-lg lift-card">PHP</span>
+            <span class="bg-white text-dark border border-cardBorder px-6 py-3 rounded-full font-semibold text-lg rotate-[1deg] shadow-sm lift-card">AI / ML</span>
+            <span class="bg-purple/20 text-purple px-6 py-3 rounded-full font-semibold text-lg rotate-[-2deg] shadow-sm lift-card">Figma</span>
+            <span class="bg-white text-dark border border-cardBorder px-6 py-3 rounded-full font-semibold text-lg rotate-[4deg] shadow-sm lift-card">Photoshop</span>
+            <span class="bg-purple text-white px-6 py-3 rounded-full font-semibold text-lg rotate-[-1deg] shadow-lg lift-card">3D Design</span>
+        </div>
+    </section>
+
+    <!-- 7. CERTIFICATE WALL -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="font-heading text-3xl font-bold mb-2">Certificate Wall</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-4 rounded-xl border border-cardBorder lift-card flex flex-col items-center justify-center h-32">
+                <span class="text-2xl mb-2">🏆</span>
+                <span class="text-xs font-semibold text-center text-gray-600">Full Stack Dev</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-cardBorder lift-card flex flex-col items-center justify-center h-32">
+                <span class="text-2xl mb-2">🤖</span>
+                <span class="text-xs font-semibold text-center text-gray-600">AI Fundamentals</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-cardBorder lift-card flex flex-col items-center justify-center h-32">
+                <span class="text-2xl mb-2">☕</span>
+                <span class="text-xs font-semibold text-center text-gray-600">Java Mastery</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-cardBorder lift-card flex flex-col items-center justify-center h-32">
+                <span class="text-2xl mb-2">🎨</span>
+                <span class="text-xs font-semibold text-center text-gray-600">UI/UX Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. BY THE NUMBERS -->
+    <section class="bg-white py-16 border-y border-cardBorder">
+        <div class="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="font-heading font-bold text-4xl text-purple mb-1">10+</div>
+                <div class="text-sm text-gray-500 font-medium">Technologies</div>
+            </div>
+            <div>
+                <div class="font-heading font-bold text-4xl text-purple mb-1">50+</div>
+                <div class="text-sm text-gray-500 font-medium">Posters Made</div>
+            </div>
+            <div>
+                <div class="font-heading font-bold text-4xl text-purple mb-1">100%</div>
+                <div class="text-sm text-gray-500 font-medium">Coffee Powered</div>
+            </div>
+            <div>
+                <div class="font-heading font-bold text-4xl text-purple mb-1">∞</div>
+                <div class="text-sm text-gray-500 font-medium">Ideas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. LET'S BE FRIENDS -->
+    <section id="contact" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto bg-gradient-to-br from-orange to-purple rounded-[3rem] p-12 md:p-20 relative shadow-2xl flex flex-col md:flex-row items-center gap-10">
+            <div class="w-full md:w-2/3 text-white z-10">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">Let's be friends!</h2>
+                <p class="text-white/90 text-lg mb-8 max-w-md">Hiring? Collaborating? Or just want to say hi — my inbox is always open.</p>
+                
+                <a href="mailto:sidstudioco@gmail.com" class="bg-white text-purple px-8 py-4 rounded-xl font-bold inline-block hover:scale-105 transition shadow-lg mb-8">
+                    sidstudioco@gmail.com
+                </a>
+                
+                <div class="flex flex-wrap gap-8 text-white font-medium mt-4">
+                    <a href="https://instagram.com/sidstudio.co" target="_blank" class="flex items-center gap-2 hover:opacity-80 transition">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        @sidstudio.co
+                    </a>
+                    <a href="tel:+919168290024" class="flex items-center gap-2 hover:opacity-80 transition">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        +91 9168290024
+                    </a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/3 flex justify-center z-10 relative">
+                <div class="paw-animate">
+                    <svg width="140" height="140" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-xl">
+                        <path d="M50 92C28 92 15 75 15 58C15 42 28 32 38 32C43 32 47 36 50 42C53 36 57 32 62 32C72 32 85 42 85 58C85 75 72 92 50 92Z" fill="white"/>
+                        <ellipse cx="24" cy="26" rx="10" ry="13" transform="rotate(-30 24 26)" fill="white"/>
+                        <ellipse cx="44" cy="18" rx="10" ry="14" fill="white"/>
+                        <ellipse cx="68" cy="20" rx="10" ry="13" fill="white"/>
+                        <ellipse cx="84" cy="36" rx="9" ry="12" transform="rotate(30 84 36)" fill="white"/>
+                        <ellipse cx="24" cy="26" rx="4" ry="6" transform="rotate(-30 24 26)" fill="#FFB6C1"/>
+                        <ellipse cx="44" cy="18" rx="4" ry="6" fill="#FFB6C1"/>
+                        <ellipse cx="68" cy="20" rx="4" ry="6" fill="#FFB6C1"/>
+                        <ellipse cx="84" cy="36" rx="3.5" ry="5" transform="rotate(30 84 36)" fill="#FFB6C1"/>
+                        <path d="M50 84C36 84 28 72 28 62C28 52 36 46 42 46C46 46 49 50 50 54C51 50 54 46 58 46C64 46 72 52 72 62C72 72 64 84 50 84Z" fill="#FFB6C1"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-8 text-sm text-gray-400 border-t border-cardBorder">
+        <p>© 2026 SidStudio. Built with React, Tailwind & lots of love.</p>
+    </footer>
+
+</body>
+</html>
+
